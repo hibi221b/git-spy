@@ -1,0 +1,32 @@
+[package]
+name = "git-spy"
+version = "0.1.0"
+authors = ["hibi221b"]
+edition = "2018"
+license = "MIT"
+readme = "README.md"
+categories = ["command-line-utilities"]
+description = "command-line tool to efficiently collect github repository"
+repository = "https://github.com/hibi221b/git-spy"
+documentation = "https://github.com/hibi221b/git-spy"
+homepage = "https://github.com/hibi221b/git-spy"
+keywords = [
+    "cli",
+    "scraping",
+    "github",
+    "headless_chrome",
+    "terminal",
+    "command-line"
+]
+
+[dependencies]
+clap = "2.33.0"
+anyhow = "1.0"
+console = "0.11.3"
+lazy_static = "1.4.0"
+dirs = "2.0.2"
+headless_chrome = "0.9.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = "0.4.11"
+failure = "0.1.7"
