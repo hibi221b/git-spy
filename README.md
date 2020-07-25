@@ -1,5 +1,4 @@
-# git-spy
-command-line tool to efficiently collect github repository
+![logo](https://user-images.githubusercontent.com/29950288/88449229-1adc4380-ce80-11ea-8bc2-05f53fb8d8dc.png)
 
 [![travisci](https://img.shields.io/travis/hibi221b/git-spy?style=for-the-badge)](https://travis-ci.org/github/hibi221b/git-spy)
 [![license](https://img.shields.io/github/license/hibi221b/git-spy?style=for-the-badge)](https://github.com/hibi221b/git-spy/blob/master/LICENSE)
@@ -7,8 +6,6 @@ command-line tool to efficiently collect github repository
 # Demo
 
 ![git-spy-gif](https://user-images.githubusercontent.com/29950288/88448201-114dde00-ce76-11ea-86f8-dbfd6f0df274.gif)
-
-# Overview
 
 # Prerequisite
 
