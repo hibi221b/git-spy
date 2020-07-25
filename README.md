@@ -8,6 +8,20 @@ command-line tool to efficiently collect github repository
 
 # Overview
 
+# How to install
+
+## cargo
+
+```terminal
+cargo install git-spy
+```
+
+## homebrew
+
+```terminal
+coming soon
+```
+
 # Usage
 
 ```terminal
@@ -21,20 +35,6 @@ USAGE:
 FLAGS:
     -h, --help       Prints help information
     -V, --version    Prints version information
-```
-
-# How to install
-
-## cargo
-
-```terminal
-cargo install git-spy
-```
-
-## homebrew
-
-```terminal
-coming soon
 ```
 
 # How to use
@@ -145,7 +145,11 @@ info: scraping successfully finished.
 
 you open the index.html file and open this saved json file and display it.
 
+- `$HOME/Downloads/git-spy-result/index.html`
 
+<img width="1680" alt="result" src="https://user-images.githubusercontent.com/29950288/88447316-e01ce000-ce6c-11ea-9181-767b95249925.png">
+
+- `$HOME/Downloads/git-spy-result/XXX.json`
 
 ```json
 [
