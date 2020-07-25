@@ -6,7 +6,19 @@ command-line tool to efficiently collect github repository
 
 # Demo
 
+![git-spy-gif](https://user-images.githubusercontent.com/29950288/88448201-114dde00-ce76-11ea-86f8-dbfd6f0df274.gif)
+
 # Overview
+
+# Prerequisite
+
+- Chrome or Chromium
+
+# Environment
+
+| mac | linux | windows |
+|:---:|:---:|:---:|
+|○ |○ |△ |
 
 # How to install
 
@@ -14,12 +26,6 @@ command-line tool to efficiently collect github repository
 
 ```terminal
 cargo install git-spy
-```
-
-## homebrew
-
-```terminal
-coming soon
 ```
 
 # Usage
