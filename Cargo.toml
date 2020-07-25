@@ -19,6 +19,9 @@ keywords = [
     "command-line"
 ]
 
+[badges]
+travis-ci = { repository = "hibi221b/git-spy", branch = "master" }
+
 [dependencies]
 clap = "2.33.0"
 anyhow = "1.0"
