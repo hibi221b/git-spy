@@ -14,9 +14,7 @@ keywords = [
     "cli",
     "scraping",
     "github",
-    "headless_chrome",
     "terminal",
-    "command-line"
 ]
 
 [badges]
