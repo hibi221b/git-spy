@@ -2,7 +2,7 @@
 command-line tool to efficiently collect github repository
 
 [![travisci](https://img.shields.io/travis/hibi221b/git-spy?style=for-the-badge)](https://travis-ci.org/github/hibi221b/git-spy)
-[![license](https://img.shields.io/github/license/hibi221b/git-spy?style=for-the-badge)](https://github.com/hibi221b/git-spy/LICENSE)
+[![license](https://img.shields.io/github/license/hibi221b/git-spy?style=for-the-badge)](https://github.com/hibi221b/git-spy/blob/master/LICENSE)
 
 # Demo
 
