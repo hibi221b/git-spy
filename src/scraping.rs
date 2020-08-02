@@ -72,11 +72,11 @@ pub fn scraping_github(app: &mut App) -> Result<(), failure::Error> {
                 .value.unwrap() {
                     value::Value::String(mut s) => {
                         let mut new_s = Vec::new();
-                        while let Some(poped) = s.pop() {
-                            if poped == '/' {
+                        while let Some(popped) = s.pop() {
+                            if popped == '/' {
                                 break;
                             }
-                            new_s.push(poped);
+                            new_s.push(popped);
                         }
                         new_s.reverse();
                     

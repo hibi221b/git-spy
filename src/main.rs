@@ -28,7 +28,6 @@ use std::fs::{self, File};
 use std::io::Write;
 use std::thread;
 use std::time::Duration;
-use std::path::Path;
 
 static _HTML_DATA: &[u8] = include_bytes!("./theme/index.html");
 
@@ -93,14 +92,14 @@ fn create_json_file(app: &App, json_file_count: u64) -> Result<()> {
     Ok(())
 }
 
-fn open_index_html(index_html_path: &Path) {
+fn open_index_html() {
     if cfg!(target_os = "macos") {
         process::Command::new("open")
-            .arg(index_html_path)
+            .arg(INDEX_HTML.as_path())
             .spawn()
-            .expect(&format!("cannot open {}", index_html_path.to_str().unwrap()));
+            .expect(&format!("cannot open {}", INDEX_HTML.as_path().to_str().unwrap()));
     } else {
-        println!("\n{} open {}", style("info:").green(), index_html_path.to_str().unwrap());
+        println!("\n{} open {}", style("info:").green(), INDEX_HTML.as_path().to_str().unwrap());
     }
 }
 
@@ -145,5 +144,5 @@ fn main() {
     create_json_file(&app, json_file_count).expect("cannot create json file");
 
     thread::sleep(Duration::from_secs(3));
-    open_index_html(INDEX_HTML.as_path());
+    open_index_html();
 }

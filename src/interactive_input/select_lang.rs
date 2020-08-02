@@ -9,6 +9,11 @@ pub fn select_lang() -> String {
         std::io::stdin().read_line(&mut s).unwrap();
 
         let s = s.trim();
+        
+        if s == "" {
+            eprintln!("{} input language...", style("info:").red());
+            continue;
+        }
 
         if s.contains(" ") {
             eprintln!("{} input one language.", style("info:").red());
