@@ -2,6 +2,7 @@
 
 [![travisci](https://img.shields.io/travis/hibi221b/git-spy?style=for-the-badge)](https://travis-ci.org/github/hibi221b/git-spy)
 [![license](https://img.shields.io/github/license/hibi221b/git-spy?style=for-the-badge)](https://github.com/hibi221b/git-spy/blob/master/LICENSE)
+[![crates.io](https://img.shields.io/crates/v/git-spy?style=for-the-badge)](https://crates.io/crates/git-spy)
 
 # Demo
 
