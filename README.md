@@ -150,7 +150,7 @@ you open the index.html file and open this saved json file and display it.
 
 - `$HOME/Downloads/git-spy-result/index.html`
 
-<img width="1680" alt="result" src="https://user-images.githubusercontent.com/29950288/88447316-e01ce000-ce6c-11ea-9181-767b95249925.png">
+<img width="1678" alt="screenshot" src="https://user-images.githubusercontent.com/29950288/89114468-b93b5b00-d4b7-11ea-890e-1ca984bc5430.png">
 
 - `$HOME/Downloads/git-spy-result/XXX.json`
 
