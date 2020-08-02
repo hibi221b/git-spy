@@ -5,7 +5,7 @@
 
 # Demo
 
-![git-spy-gif](https://user-images.githubusercontent.com/29950288/88448201-114dde00-ce76-11ea-86f8-dbfd6f0df274.gif)
+![git-spy](https://user-images.githubusercontent.com/29950288/89114451-72e5fc00-d4b7-11ea-9495-7064e454e6e2.gif)
 
 # Prerequisite
 
