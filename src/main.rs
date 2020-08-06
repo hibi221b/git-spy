@@ -12,7 +12,7 @@ use message::{TITLE};
 use interactive_input::{
     select_lang::select_lang, 
     select_bound::select_lower_bound, 
-    select_bound::select_uppder_bound,
+    select_bound::select_upper_bound,
     select_topic::select_topic, 
     select_headless_mode::select_headless_mode
 };
@@ -85,7 +85,7 @@ fn create_json_file(app: &App, json_file_count: u64) -> Result<()> {
     let mut abs_json_path = DOWNLOAD_DIR.clone();
     abs_json_path.push(json_path);
 
-    let serialize = serde_json::to_vec_pretty(&app.json_contents())?;
+    let serialize = serde_json::to_vec_pretty(&app.contents)?;
     let mut file = File::create(&abs_json_path)?;
     file.write_all(&serialize)?;
 
@@ -97,14 +97,14 @@ fn open_index_html() {
         process::Command::new("open")
             .arg(INDEX_HTML.as_path())
             .spawn()
-            .expect(&format!("cannot open {}", INDEX_HTML.as_path().to_str().unwrap()));
+            .unwrap_or_else(|_| panic!("cannot open {}", INDEX_HTML.as_path().to_str().unwrap()));
     } else {
         println!("\n{} open {}", style("info:").green(), INDEX_HTML.as_path().to_str().unwrap());
     }
 }
 
 fn main() {
-    // `git-spy` need not arguments
+    // `git-spy` needs no arguments
     let _ = parse_args();
     
     setup_environment().expect("setup failed...");
@@ -117,9 +117,9 @@ fn main() {
 
     let search_lang: String = select_lang();
     let lower_bound: String = select_lower_bound();
-    let upper_bound: String = select_uppder_bound();
+    let upper_bound: String = select_upper_bound();
 
-    if upper_bound != "*".to_string() {
+    if upper_bound.as_str() != "*" {
         let low: u64 = lower_bound.parse().unwrap();
         let up: u64 = upper_bound.parse().unwrap();
         if low >= up {

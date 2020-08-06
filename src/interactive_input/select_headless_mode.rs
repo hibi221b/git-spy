@@ -2,7 +2,7 @@ use console::style;
 
 pub fn select_headless_mode() -> bool {
 
-    println!("{}", style("▼ press enter: hide chrome, input `n`: visualize chrome").cyan());
+    println!("{}", style("\u{25bc} press enter: hide chrome, input `n`: visualize chrome").cyan());
 
     let headless = loop {
         let mut s = String::new();

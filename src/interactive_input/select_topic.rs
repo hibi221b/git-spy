@@ -2,7 +2,7 @@ use console::style;
 
 pub fn select_topic() -> String {
 
-    println!("{}", style("▼ topic words.(cli, web, gui, terminal, etc...) If you don't need, press enter.").cyan());
+    println!("{}", style("\u{25bc} topic words.(cli, web, gui, terminal, etc...) If you don't need, press enter.").cyan());
 
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).unwrap();

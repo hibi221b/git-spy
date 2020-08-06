@@ -2,7 +2,8 @@ use console::style;
 
 pub fn select_lang() -> String {
     
-    println!("{}", style("▼ language").cyan());
+    //\u{25bc} == ▼
+    println!("{}", style("\u{25bc} language").cyan());
 
     let search_lang = loop {
         let mut s = String::new();
@@ -15,7 +16,7 @@ pub fn select_lang() -> String {
             continue;
         }
 
-        if s.contains(" ") {
+        if s.contains(' ') {
             eprintln!("{} input one language.", style("info:").red());
             continue;
         }

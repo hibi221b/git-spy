@@ -32,7 +32,7 @@ pub struct App {
     queries: String,
     web_page_count: u64,
     total_repository_count: u64,
-    contents: Box<Vec<JsonData>>
+    pub contents: Vec<JsonData>
 }
 
 impl App {
@@ -79,10 +79,6 @@ impl App {
         self.total_repository_count
     }
 
-    pub fn json_contents(&self) -> &Box<Vec<JsonData>> {
-        &self.contents
-    }
-
     pub fn add_web_page_count(&mut self) {
         self.web_page_count += 1;
         println!("{} page {}/10", style("info:").green(), self.web_page_count);
@@ -92,15 +88,11 @@ impl App {
         self.total_repository_count += repository_count;
     }
 
-    pub fn set_json_contents(&mut self, json: Box<Vec<JsonData>>) {
-        self.contents = json;
-    }
-
     pub fn push_queries(&mut self) {
-        if self.topics == "".to_string() {
+        if self.topics.as_str() == "" {
             self.queries = format!("language:{} stars:{}..{}", self.search_lang, self.lower_bound, self.upper_bound);
         } else {
-            self.queries = match self.topics.split(' ').collect::<Vec<&str>>().len() {
+            self.queries = match self.topics.split(' ').count() {
                 1 => format!("language:{} stars:{}..{} topic:{}", self.search_lang, self.lower_bound, self.upper_bound, self.topics),
                 _ => format!("language:{} stars:{}..{} topic:\"{}\"", self.search_lang, self.lower_bound, self.upper_bound, self.topics)
             }

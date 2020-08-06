@@ -2,7 +2,7 @@ use console::style;
 
 pub fn select_lower_bound() -> String {
 
-    println!("{}", style("▼ lower bound of github star.").cyan());
+    println!("{}", style("\u{25bc} lower bound of github star.").cyan());
 
     let lower = loop {
         let mut s = String::new();
@@ -27,9 +27,9 @@ pub fn select_lower_bound() -> String {
     lower
 }
 
-pub fn select_uppder_bound() -> String {
+pub fn select_upper_bound() -> String {
 
-    println!("{}", style("▼ upper bound of github star. (number or *)").cyan());
+    println!("{}", style("\u{25bc} upper bound of github star. (number or *)").cyan());
 
     let upper = loop {
         let mut s = String::new();

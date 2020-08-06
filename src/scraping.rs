@@ -1,4 +1,14 @@
-use crate::selector::*;
+use crate::selector::{
+    DESC_SELECTOR_ARRAY, 
+    GITHUB_INPUT_SELECTOR, 
+    GITHUB_URL, 
+    HIT_REPOSITORY_SELECTOR, 
+    KEYWORDS_SELECTOR_ARRAY, 
+    LENGTH_OF_ELEMENTS, 
+    NEXT_PAGE_BUTTON_SELECTOR, 
+    REPO_NAME_AND_HREF_SELECTOR_ARRAY, 
+    STAR_SELECTOR_ARRAY
+};
 use crate::app::JsonData;
 use crate::app::App;
 
@@ -71,56 +81,49 @@ pub fn scraping_github(app: &mut App) -> Result<(), failure::Error> {
                 .call_js_fn("function() { return this.innerText }", true)?
                 .value.unwrap() {
                     value::Value::String(mut s) => {
-                        let mut new_s = Vec::new();
-                        while let Some(popped) = s.pop() {
-                            if popped == '/' {
+
+                        let mut repository_name = String::new();
+                        while let Some(ch) = s.pop() {
+                            if ch == '/' {
                                 break;
                             }
-                            new_s.push(popped);
+                            repository_name.push(ch);
                         }
-                        new_s.reverse();
-                    
-                        let mut repo = String::new();
-                        for c in new_s.into_iter() {
-                            repo.push(c);
-                        }
-            
-                        repo
+
+                        repository_name.chars().rev().collect::<String>()
+
                     },
                     _ => "NOT_FOUND".to_string()
                 };
 
-            let desc;
-            if let Err(_) = tab.wait_for_element(DESC_SELECTOR_ARRAY[i]) {
-                desc = String::from("NOT_FOUND");
+            let desc = if tab.wait_for_element(DESC_SELECTOR_ARRAY[i]).is_err() {
+                String::from("NOT_FOUND")
             } else {
-                desc = match tab
+                match tab
                     .wait_for_element(DESC_SELECTOR_ARRAY[i])?
                     .call_js_fn("function() { return this.innerText }", true)?
                     .value.unwrap() {
                         value::Value::String(s) => s,
                         _ => "NOT_FOUND".to_string()
-                    };
-            }
+                    }
+            };
 
-            let star;
-            if let Err(_) = tab.wait_for_element(STAR_SELECTOR_ARRAY[i]) {
-                star = String::from("NOT_FOUND");
+            let star = if tab.wait_for_element(STAR_SELECTOR_ARRAY[i]).is_err() {
+                String::from("NOT_FOUND")
             } else {
-                star = match tab
+                match tab
                     .wait_for_element(STAR_SELECTOR_ARRAY[i])?
                     .call_js_fn("function() { return this.innerText }", true)?
                     .value.unwrap() {
                         value::Value::String(s) => s.trim_start().to_string(),
                         _ => "NOT_FOUND".to_string()
-                   };
-            }
+                   }
+            };
 
-            let keywords;
-            if let Err(_) = tab.wait_for_element(KEYWORDS_SELECTOR_ARRAY[i]) {
-                keywords = String::from("NOT_FOUND");
+            let keywords = if tab.wait_for_element(KEYWORDS_SELECTOR_ARRAY[i]).is_err() {
+                String::from("NOT_FOUND")
             } else {
-                keywords = match tab
+                match tab
                     .wait_for_element(KEYWORDS_SELECTOR_ARRAY[i])?
                     .call_js_fn("function() { return this.innerText }", true)?
                     .value.unwrap() {
@@ -133,17 +136,17 @@ pub fn scraping_github(app: &mut App) -> Result<(), failure::Error> {
                             s
                         },
                         _ => "NOT_FOUND".to_string()
-                    };
-            }
+                    }
+            };
 
             json_contents.push(JsonData::new(&url, &repo, &desc, &star, &keywords));
         } //for end
 
-        if let Err(_) = tab.wait_for_element(NEXT_PAGE_BUTTON_SELECTOR) {
+        if tab.wait_for_element(NEXT_PAGE_BUTTON_SELECTOR).is_err() {
 
             println!("\n{} {} repositories acquired. ($HOME/Downloads/git-spy-result/xxxxx.json)", style("info:").green(), app.total_repository_count());
 
-            app.set_json_contents(Box::new(json_contents));
+            app.contents = json_contents;
             println!("{} scraping successfully finished.", style("info:").green());
             break;
 
@@ -151,7 +154,7 @@ pub fn scraping_github(app: &mut App) -> Result<(), failure::Error> {
 
             println!("\n{} {} repositories acquired. ($HOME/Downloads/git-spy-result/xxxxx.json)", style("info:").green(), app.total_repository_count());
 
-            app.set_json_contents(Box::new(json_contents));
+            app.contents = json_contents;
             println!("{} The maximum number of items(100) has been reached.", style("info:").green());
             break;
         }

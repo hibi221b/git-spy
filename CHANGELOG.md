@@ -1,6 +1,39 @@
+# git-spy 0.1.2
+
+## changed the data structure of the contents of the app structure
+
+`contents: Box<Vec<JsonData>>` -> `pub contnets: Vec<JsonData>`
+
+##### **`src/app.rs`**
+```rust
+#[derive(Debug, Default)]
+pub struct App {
+    ...
+    ...
+    pub contents: Vec<JsonData>
+}
+```
+
+## iterator was used to refactor
+
+extracts only the github repository name from the url string
+
+##### **`src/scraping.rs`**
+```rust
+let mut repository_name = String::new();
+while let Some(ch) = s.pop() {
+    if ch == '/' {
+        break;
+    }
+    repository_name.push(ch);
+}
+
+repository_name.chars().rev().collect::<String>()
+```
+
 # git-spy 0.1.1
 
-## Added conditions of language selection
+## added conditions of language selection
 
 If you press the Enter key without selecting a language, you will be prompted to select a language again.
 
