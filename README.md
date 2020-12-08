@@ -4,9 +4,7 @@
 [![license](https://img.shields.io/github/license/hibi221b/git-spy?style=for-the-badge)](https://github.com/hibi221b/git-spy/blob/master/LICENSE)
 [![crates.io](https://img.shields.io/crates/v/git-spy?style=for-the-badge)](https://crates.io/crates/git-spy)
 
-# Demo
-
-![git-spy](https://user-images.githubusercontent.com/29950288/89114451-72e5fc00-d4b7-11ea-9495-7064e454e6e2.gif)
+# ~~Demo~~
 
 # Prerequisite
 
@@ -21,6 +19,14 @@
 # How to install
 
 ## cargo
+
+### Recommend
+
+```terminal
+cargo install --git https://github.com/hibi221b/git-spy.git
+```
+
+### NOT recommend
 
 ```terminal
 cargo install git-spy
@@ -68,10 +74,9 @@ $ git-spy
 - you can select topics you want to search
 - cli, web, gui, terminal, etc... or nothing
 
-## [5] confirm headless_mode
+## ~~[5] confirm headless_mode~~
 
-- press enter: hide chrome 
-- press n:     visualize chrome
+- git-spy always open browser.
 
 ```terminal
 
@@ -92,9 +97,8 @@ rust <--------------------------------------------------------------------------
 * <----------------------------------------------------------------------------------------- [3]
 ▼ topic words.(cli, web, gui, terminal, etc...) If you don't need, press enter.
 cli terminal command tool <----------------------------------------------------------------- [4]
-▼ press enter: hide chrome, input `n`: visualize chrome
- <------------------------------------------------------------------------------------------ [5]
-headless mode: true
+
+headless mode: false
 search query:  language:rust stars:1000..* topic:"cli terminal command tool"
 
 info: 27 repository results (The maximum number of repositories git-spy can get is 100)
