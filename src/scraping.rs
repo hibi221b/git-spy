@@ -34,10 +34,11 @@ pub fn scraping_github(app: &mut App) -> Result<(), failure::Error> {
     tab.navigate_to(GITHUB_URL)?;
     //wait for input tag is shown
     tab.wait_for_element(GITHUB_INPUT_SELECTOR)?.click()?;
+
+    thread::sleep(Duration::from_secs(7));
+
     //search repo
     tab.type_str(&app.queries())?.press_key("Enter")?;
-
-    thread::sleep(Duration::from_secs(2));
 
     if let Err(e) = tab.wait_for_element(HIT_REPOSITORY_SELECTOR) {
         eprintln!("\ncannot find repository... match 0");
