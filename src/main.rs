@@ -13,8 +13,7 @@ use interactive_input::{
     select_lang::select_lang, 
     select_bound::select_lower_bound, 
     select_bound::select_upper_bound,
-    select_topic::select_topic, 
-    select_headless_mode::select_headless_mode
+    select_topic::select_topic
 };
 use app::App;
 use scraping::scraping_github;
@@ -128,9 +127,8 @@ fn main() {
     }
 
     let topics: String = select_topic();
-    let headless_mode: bool = select_headless_mode();
 
-    let mut app = App::new(&search_lang, &lower_bound, &upper_bound, &topics, headless_mode);
+    let mut app = App::new(&search_lang, &lower_bound, &upper_bound, &topics);
     app.push_queries();
 
     println!("{} {}", style("headless mode:").green(), app.headless_mode());

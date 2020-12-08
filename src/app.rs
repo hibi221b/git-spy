@@ -36,13 +36,13 @@ pub struct App {
 }
 
 impl App {
-    pub fn new(lang: &str, lower: &str, upper: &str, topics: &str, headless: bool) -> Self {
+    pub fn new(lang: &str, lower: &str, upper: &str, topics: &str) -> Self {
         Self {
             search_lang: lang.to_string(),
             lower_bound: lower.to_string(),
             upper_bound: upper.to_string(),
             topics: topics.to_string(),
-            headless_mode: headless,
+            headless_mode: false,
             ..App::default()
         }
     }
